@@ -12,7 +12,7 @@ set(0,'DefaultAxesXGrid','on','DefaultAxesYGrid','on',...
 PuOr=getPyPlot_cMap('PuOr',121);
 %% Load data
 % Data_path
-DATA_PATH=['/Users/yiwenff/Desktop/2_SnowDrought/pushlish_GitHub/data/'];
+DATA_PATH=['../data/'];
 
 % 1) load negative SWE
 load([DATA_PATH '/1_SWE/snowmelt_basinwide_OCT_JUL_WY1988_2021'],'SWE_neg_basin','basinname')

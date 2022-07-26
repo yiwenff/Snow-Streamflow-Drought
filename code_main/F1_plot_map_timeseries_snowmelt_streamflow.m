@@ -16,7 +16,7 @@ spec = getPyPlot_cMap('Spectral',12);
 RdBu = [RdYBu(1:3,:);spec([5:6,8:9],:);RdYBu(10:12,:)];
 
 %% Load dataset
-DATA_PATH=['/Users/yiwenff/Desktop/2_SnowDrought/pushlish_GitHub/data/' ];
+DATA_PATH=['../data/' ];
 
 % 1) SWE and flow time series percentile
 load([DATA_PATH '/0_naturalized_flow/Basin_SWE_flow_percentile']);
@@ -31,8 +31,7 @@ load([DATA_PATH '/1_SWE/snowmelt_pixelwise_percentile_OCT_JUL_WY1988_2021'])
 load([DATA_PATH '/3_mask_shapefile/Reanalysis_SN_480m_mask.mat'])
 
 % 5) HUC2 lat/lon
-HUC2_PATH='//Users/yiwenff/Desktop/1_WUS_SR_descriptor/publish_github/data/';
-load([HUC2_PATH 'WUS_HUC2_boundaries'],'HUC2_string','HUC2')
+load([DATA_PATH '/3_mask_shapefile/WUS_HUC2_boundaries'],'HUC2_string','HUC2')
 
 % 6) Median SWE path
 load([DATA_PATH '/1_SWE/mean_peak_SWE'],'median_peak_SWE','description')
@@ -44,7 +43,8 @@ lat_map_array_480 = lat_map_array(1)+1-1/225/2:-1/225:lat_map_array(end)+1/225/2
 
 % Define SN and UCRB basin Name
 basinname={'uppersac','feather','yuba','american','stanislaus','tuolumne',...
-    'merced','sanjoaquin','kings','kaweah','kern','tule','mokelumne','headwaters','gunnison'};
+    'merced','sanjoaquin','kings','kaweah','kern','tule','mokelumne','trinity',...
+    'headwaters','gunnison','sanjuan','newfork','sanrafael','white'};
 load([DATA_PATH '/3_mask_shapefile/shape_sub_WUS'])
 
 %% Define study period
@@ -165,11 +165,11 @@ yl=ylabel('(percentile)');
 yl.Position(1)=2025;
 set(gca,'FontSize',12)
 
-nanmedian(Flow_sn_percentile*100-SWE_sn_percentile*100)
-nanmedian(Flow_ucrb_percentile*100-SWE_ucrb_percentile*100)
+nanmedian(Flow_sn_percentile*100-SWE_sn_percentile*100);
+nanmedian(Flow_ucrb_percentile*100-SWE_ucrb_percentile*100);
 
-Flow_sn_percentile(end)*100-SWE_sn_percentile(end)*100
-Flow_ucrb_percentile(end)*100-SWE_ucrb_percentile(end)*100
+Flow_sn_percentile(end)*100-SWE_sn_percentile(end)*100;
+Flow_ucrb_percentile(end)*100-SWE_ucrb_percentile(end)*100;
 %% WUS subplot a)
 ax4=axes('position',[0.0200    0.32    0.36    0.65]);
 hold on
@@ -271,7 +271,7 @@ for j=[4]
     plot(HUC2.(['s' HUC2_string(j,:)]).X,HUC2.(['s' HUC2_string(j,:)]).Y,'color',[96 96 96]/255,'Linewidth',1)
 end
 
-HUC6_id=[14,15];
+HUC6_id=[15,16];
 for j=1:length(HUC6_id)
     plot(HUC_boundary.(char(basinname(HUC6_id(j)))).X,HUC_boundary.(char(basinname(HUC6_id(j)))).Y,'color','k','Linewidth',2.5)
 end

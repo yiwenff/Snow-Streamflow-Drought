@@ -4,7 +4,7 @@
 %% all sites averaged across sites
 clear;clc;
 
-DATA_PATH='/Users/yiwenff/Desktop/2_SnowDrought/pushlish_GitHub/data/';
+DATA_PATH='../data/';
 % Plot domain maps
 load([DATA_PATH '/2_Soil_Moisture/SMS_CA_WY2003_2021'])
 load([DATA_PATH '/2_Soil_Moisture/SMS_CO_WY2003_2021'])
@@ -37,7 +37,7 @@ dummy_soil=SN.VWC_per.ave(:,ival_site);
 % =============== c) SN =============== 
 figure,set(gcf,'position',[29,81,388,650])
 ax1 = axes('Position',[-0.005,0.53,0.9,0.45]);
-usamap([38.4,39.2],[-120.3, -119.3])
+usamap([38.4,39.2],[-120.3, -119.3]);
 scaleruler on
 s = handlem('scaleruler1');
 setm(handlem('scaleruler1'), "MajorTick",[0,10,20,30], "FontSize",16,"RulerStyle",...

@@ -5,7 +5,7 @@
 WYs=2003:2021;
 Month_tick={'','1 NOV','','1 JAN','', '1 MAR','','1 MAY','','1 JUL','','1 SEP'};
 
-DATA_PATH='/Users/yiwenff/Desktop/2_SnowDrought/pushlish_GitHub/data/2_Soil_Moisture/';
+DATA_PATH='../data/2_Soil_Moisture/';
 % load soil moisture data at FDC
 load([DATA_PATH 'SMS_CA_WY2003_2021'])
 
@@ -51,7 +51,7 @@ idx = dummy>thre & [dummy(2:end)>thre;false] &  [dummy(3:end)>thre;false;false] 
 Idate2=find(idx==1,1,'first');
 
 % ================== SWE ==================
-figure
+figure,whitebg(([245/255,245/255,245/255]))
 set(gcf,'position',[200,200,890,700])
 axes('Position',[0.1,0.68,0.88,0.28])
 ax=gca;
@@ -132,8 +132,8 @@ p(6)=plot(NM,FDC_ave(:,iyear),'-','color',color2,'linewidth',4);
 plot([NM(Idate1) NM(Idate1)], ylim,'--','color',color1,'linewidth',2)
 plot([NM(Idate2) NM(Idate2)], ylim,'--','color',color2,'linewidth',2)
 % Plot Antecedent soil moisture
-plot(NM(Idate1),FDC_ave(Idate1,end),'x','color',color1,'Markersize',20,'linewidth',3)
-plot(NM(Idate2),FDC_ave(Idate2,iyear),'x','color',color2,'Markersize',20,'linewidth',3)
+plot(NM(Idate1),FDC_ave(Idate1,end),'x','color',color1,'Markersize',20,'linewidth',4)
+plot(NM(Idate2),FDC_ave(Idate2,iyear),'x','color',color2,'Markersize',20,'linewidth',4)
 
 % subplot settings
 ylim([0 max(FDC_ave(:))]);

@@ -4,7 +4,7 @@
 % Month and WYs 
 WYs=2003:2021;
 Month_tick={'','1 NOV','','1 JAN','', '1 MAR','','1 MAY','','1 JUL','','1 SEP'};
-DATA_PATH='/Users/yiwenff/Desktop/2_SnowDrought/pushlish_GitHub/data/2_Soil_Moisture/';
+DATA_PATH='../data/2_Soil_Moisture/';
 
 % load soil moisture data at Berthoud Summit
 load([DATA_PATH 'SMS_CO_WY2003_2021'])
@@ -53,7 +53,8 @@ idx = dummy>thre & [dummy(2:end)>thre;false] &  [dummy(3:end)>thre;false;false] 
 Idate2=find(idx==1,1,'first');
 
 % ================== SWE ==================
-figure,
+figure,whitebg(([245/255,245/255,245/255]))
+
 set(gcf,'position',[200,200,890,700])
 axes('Position',[0.1,0.68,0.88,0.28])
 ax=gca;
@@ -74,11 +75,11 @@ inBetween = [q25', fliplr(q75')];
 p(3)=fill(x2, inBetween ,[211 211 211]/255,'EdgeColor','none','FaceAlpha',0.5);
 
 % Median of SWE
-p(4)=plot(NM,nanmedian(BS_SWE,2),'-k','linewidth',2);
+p(4)=plot(NM,nanmedian(BS_SWE,2),'-k','linewidth',3);
 % WY 2021 SWE
-p(5)=plot(NM,BS_SWE(:,end),'-','color',color1,'linewidth',3);
+p(5)=plot(NM,BS_SWE(:,end),'-','color',color1,'linewidth',4);
 % WY 2011 SWE
-p(6)=plot(NM,BS_SWE(:,iyear),'-','color',color2,'linewidth',3);
+p(6)=plot(NM,BS_SWE(:,iyear),'-','color',color2,'linewidth',4);
 
 % Plot snow start days
 plot([NM(Idate1) NM(Idate1)], ylim,'--','color',color1,'linewidth',2)
@@ -122,18 +123,18 @@ inBetween = [q25', fliplr(q75')];
 p(3)=fill(x2, inBetween ,[211 211 211]/255,'EdgeColor','none');
 
 % Median of VWC
-p(4)=plot(NM,nanmedian(BS_ave,2),'-k','linewidth',2);
+p(4)=plot(NM,nanmedian(BS_ave,2),'-k','linewidth',3);
 % WY 2021 VWC
-p(5)=plot(NM,BS_ave(:,end),'-','color',color1,'linewidth',3);
+p(5)=plot(NM,BS_ave(:,end),'-','color',color1,'linewidth',4);
 % WY 2011 VWC
-p(6)=plot(NM,BS_ave(:,iyear),'-','color',color2,'linewidth',3);
+p(6)=plot(NM,BS_ave(:,iyear),'-','color',color2,'linewidth',4);
 
 % Plot snow start days
 plot([NM(Idate1) NM(Idate1)], ylim,'--','color',color1,'linewidth',2)
 plot([NM(Idate2) NM(Idate2)], ylim,'--','color',color2,'linewidth',2)
 % Plot Antecedent soil moisture
-plot(NM(Idate1),BS_ave(Idate1,end),'x','color',color1,'Markersize',20,'linewidth',3)
-plot(NM(Idate2),BS_ave(Idate2,iyear),'x','color',color2,'Markersize',20,'linewidth',3)
+plot(NM(Idate1),BS_ave(Idate1,end),'x','color',color1,'Markersize',20,'linewidth',4)
+plot(NM(Idate2),BS_ave(Idate2,iyear),'x','color',color2,'Markersize',20,'linewidth',4)
 
 % subplot settings
 ylim([0 max(BS_ave(:))]);
@@ -166,11 +167,11 @@ inBetween = [q25', fliplr(q75')];
 p(3)=fill(x2, inBetween ,[211 211 211]/255,'EdgeColor','none');
 
 % Median of streamflow
-p(4)=plot(NM,nanmedian(BS_R,2),'-k','linewidth',2);
+p(4)=plot(NM,nanmedian(BS_R,2),'-k','linewidth',3);
 % WY 2021 streamflow
-p(5)=plot(NM,BS_R(:,end),'-','color',color1,'linewidth',3);
+p(5)=plot(NM,BS_R(:,end),'-','color',color1,'linewidth',4);
 % WY 2011 streamflow
-p(6)=plot(NM,BS_R(:,iyear),'-','color',color2,'linewidth',3);
+p(6)=plot(NM,BS_R(:,iyear),'-','color',color2,'linewidth',4);
 
 % subplot settings
 ylim([0 5]);

@@ -10,7 +10,7 @@ set(0,'DefaultAxesXGrid','on','DefaultAxesYGrid','on',...
     'DefaultTextFontWeight','normal','DefaultTextFontSize',16)
 
 % load percentile data
-DATA_PATH='/Users/yiwenff/Desktop/2_SnowDrought/pushlish_GitHub/data/';
+DATA_PATH='../data/';
 load([DATA_PATH 'streamflow_contributor_percentiles_WY1988_2021.mat'])
 
 Basin_str={'Feather','American','Kern','Headwaters','Gunnison'};
