@@ -1,6 +1,6 @@
 # Snow-Streamflow-Drought
 
-This repository contains Matlab scripts used to generate the figures in snow-streamflow drought paper.
+This repository (https://doi.org/10.5281/zenodo.6950337) contains Matlab scripts used to generate the figures in snow-streamflow drought paper.
 
 Processed Datasets used in the scripts are uploaded in the data folder. 
 
